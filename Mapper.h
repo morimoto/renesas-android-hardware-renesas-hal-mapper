@@ -25,27 +25,7 @@
 #include <android/hardware/graphics/mapper/3.0/IMapper.h>
 #include <log/log.h>
 #include "MapperHal.h"
-
-#define HAL_PIXEL_FORMAT_VENDOR_EXT(fmt) (0x100 | (fmt & 0xF))
-
-/*      Reserved ** DO NOT USE **    HAL_PIXEL_FORMAT_VENDOR_EXT(0) */
-#define HAL_PIXEL_FORMAT_BGRX_8888   HAL_PIXEL_FORMAT_VENDOR_EXT(1)
-#define HAL_PIXEL_FORMAT_sBGR_A_8888 HAL_PIXEL_FORMAT_VENDOR_EXT(2)
-#define HAL_PIXEL_FORMAT_sBGR_X_8888 HAL_PIXEL_FORMAT_VENDOR_EXT(3)
-/*      HAL_PIXEL_FORMAT_RGB_565     HAL_PIXEL_FORMAT_VENDOR_EXT(4) */
-/*      HAL_PIXEL_FORMAT_BGRA_8888   HAL_PIXEL_FORMAT_VENDOR_EXT(5) */
-#define HAL_PIXEL_FORMAT_NV12        HAL_PIXEL_FORMAT_VENDOR_EXT(6)
-#define HAL_PIXEL_FORMAT_sRGB_A_8888 HAL_PIXEL_FORMAT_VENDOR_EXT(7)
-#define HAL_PIXEL_FORMAT_sRGB_X_8888 HAL_PIXEL_FORMAT_VENDOR_EXT(8)
-#define HAL_PIXEL_FORMAT_NV12_CUSTOM HAL_PIXEL_FORMAT_VENDOR_EXT(9)
-#define HAL_PIXEL_FORMAT_NV21_CUSTOM HAL_PIXEL_FORMAT_VENDOR_EXT(10)
-#define HAL_PIXEL_FORMAT_UYVY        HAL_PIXEL_FORMAT_VENDOR_EXT(11)
-/*      Free for customer use        HAL_PIXEL_FORMAT_VENDOR_EXT(12) */
-/*      Free for customer use        HAL_PIXEL_FORMAT_VENDOR_EXT(13) */
-/*      Free for customer use        HAL_PIXEL_FORMAT_VENDOR_EXT(14) */
-/*      Free for customer use        HAL_PIXEL_FORMAT_VENDOR_EXT(15) */
-
-#define HAL_PIXEL_FORMAT_NV21        (HAL_PIXEL_FORMAT_YCrCb_420_SP)
+#include "../hwcomposer/img_gralloc_common_public.h"
 
 namespace android {
 namespace hardware {
