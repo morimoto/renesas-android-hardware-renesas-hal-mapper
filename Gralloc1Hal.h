@@ -210,7 +210,6 @@ public:
         const std::unordered_set<int32_t> supportedFormats = {
             HAL_PIXEL_FORMAT_RGBA_8888,
             HAL_PIXEL_FORMAT_RGBX_8888,
-            HAL_PIXEL_FORMAT_RGB_888,
             HAL_PIXEL_FORMAT_RGB_565,
             HAL_PIXEL_FORMAT_BGRA_8888,
             HAL_PIXEL_FORMAT_YCRCB_420_SP,
@@ -227,17 +226,8 @@ public:
         };
 
         const int32_t format = static_cast<int32_t>(description.format);
-        if (!supportedFormats.count(format)) {
-            return false;
-        }
 
-        // RGB_888 is unsuitable for GPU_RENDER_TARGET
-        if ((format == HAL_PIXEL_FORMAT_RGB_888)
-                && ((uint64_t)description.usage & GRALLOC1_PRODUCER_USAGE_GPU_RENDER_TARGET)) {
-            return false;
-        }
-
-        return true;
+		return !!supportedFormats.count(format);
     }
 
 protected:
